@@ -16,7 +16,7 @@ const app = exp();
 //use middlewares
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin:"https://waste-to-wealth-app.vercel.app",
   })
 );
 app.use(exp.json());
