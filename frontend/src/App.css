@@ -1,0 +1,405 @@
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.hero-section {
+  min-height: 250px;
+  padding: 34px;
+  border: 1px solid #dce4d3;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(228, 244, 219, 0.95), rgba(255, 255, 255, 0.9)),
+    url("https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #36723f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 650px;
+  margin-bottom: 12px;
+  color: #102518;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.hero-copy {
+  max-width: 640px;
+  margin-bottom: 0;
+  color: #334d3c;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.stat-card {
+  min-height: 122px;
+  padding: 16px;
+  border: 1px solid #d8e2ce;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.stat-icon {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  color: #0f6a37;
+  background: #e7f5df;
+}
+
+.stat-card span {
+  display: block;
+  color: #5e6f63;
+  font-size: 0.82rem;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.45rem;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.user-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid #d8e2ce;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.user-strip strong,
+.user-strip span {
+  display: block;
+}
+
+.user-strip span {
+  margin-top: 3px;
+  color: #69786d;
+  font-size: 0.9rem;
+}
+
+.panel {
+  padding: 24px;
+  border: 1px solid #dde4d7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.auth-panel,
+.dashboard-panel {
+  margin-top: 24px;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.tab {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d8e2ce;
+  border-radius: 8px;
+  padding: 0 14px;
+  color: #526358;
+  background: #ffffff;
+  font-weight: 800;
+}
+
+.tab.active {
+  color: #ffffff;
+  border-color: #1d6f3b;
+  background: #1d6f3b;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: #1a5f35;
+}
+
+.panel-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.panel-title-row h2 {
+  margin: 0;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  color: #17211b;
+  font-size: 1.35rem;
+}
+
+.pickup-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #526358;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #ccd7c5;
+  border-radius: 8px;
+  padding: 12px;
+  color: #17211b;
+  background: #fbfcfa;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #278547;
+  box-shadow: 0 0 0 3px rgba(39, 133, 71, 0.14);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.scrap-adder {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px auto;
+  gap: 12px;
+  align-items: end;
+  padding: 14px;
+  border: 1px dashed #b9c9af;
+  border-radius: 8px;
+  background: #f8fbf5;
+}
+
+.primary-btn,
+.secondary-btn {
+  min-height: 46px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-weight: 800;
+}
+
+.primary-btn {
+  color: #ffffff;
+  background: #1d6f3b;
+}
+
+.primary-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.secondary-btn {
+  color: #1d6f3b;
+  background: #deefd7;
+}
+
+.message {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  color: #285934;
+  background: #eef8e9;
+}
+
+.success-box {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid #86c994;
+  border-left: 6px solid #1d8b4f;
+  border-radius: 8px;
+  color: #133c25;
+  background: #ecf9ef;
+  box-shadow: 0 12px 30px rgba(29, 111, 59, 0.12);
+  font-weight: 800;
+}
+
+.price-list,
+.selected-list {
+  display: grid;
+  gap: 10px;
+}
+
+.price-row,
+.selected-row {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf1e9;
+}
+
+.price-row strong,
+.selected-row strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.price-row span,
+.selected-row span,
+.empty-text {
+  color: #69786d;
+  font-size: 0.9rem;
+}
+
+.rate {
+  flex: 0 0 auto;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: #1d6f3b;
+  background: #eef8e9;
+  font-weight: 800;
+}
+
+h3 {
+  margin: 24px 0 8px;
+  font-size: 1.05rem;
+}
+
+.selected-row button {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: #8b2525;
+  background: #f9e9e7;
+  font-weight: 700;
+}
+
+.pickup-list {
+  display: grid;
+  gap: 12px;
+}
+
+.pickup-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 260px) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid #edf1e9;
+  border-radius: 8px;
+  background: #fbfcfa;
+}
+
+.pickup-card strong,
+.pickup-card span {
+  display: block;
+}
+
+.pickup-card span {
+  margin-top: 4px;
+  color: #69786d;
+  font-size: 0.9rem;
+}
+
+.status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.status-actions button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 12px;
+  color: #1d6f3b;
+  background: #deefd7;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding: 18px 0;
+  }
+
+  .hero-section,
+  .panel {
+    padding: 18px;
+  }
+
+  .summary-grid,
+  .pickup-form,
+  .scrap-adder,
+  .pickup-card {
+    grid-template-columns: 1fr;
+  }
+
+  .user-strip {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .stat-card {
+    min-height: auto;
+  }
+}
