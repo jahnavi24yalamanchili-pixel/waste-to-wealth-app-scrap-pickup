@@ -120,7 +120,7 @@ pickupRouter.put(
   verifyToken("COLLECTOR"),
   async (req, res, next) => {
     try {
-      const pickup = await PickupModel.findByIdAndUpdate(
+      const pickup = await PickupModel.findOneAndUpdate(
         {
           _id: req.params.pickupId,
           status: "scheduled",

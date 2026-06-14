@@ -253,6 +253,13 @@ textarea:focus {
   background: #deefd7;
 }
 
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 .message {
   grid-column: 1 / -1;
   margin: 0;
@@ -343,6 +350,11 @@ h3 {
   background: #fbfcfa;
 }
 
+.customer-pickup-card {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  align-items: stretch;
+}
+
 .pickup-card strong,
 .pickup-card span {
   display: block;
@@ -352,6 +364,58 @@ h3 {
   margin-top: 4px;
   color: #69786d;
   font-size: 0.9rem;
+}
+
+.collector-card {
+  padding: 12px;
+  border: 1px solid #d8e2ce;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.collector-card.pending {
+  background: #f8fbf5;
+}
+
+.collector-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1d6f3b;
+}
+
+.collector-heading strong {
+  margin: 0;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.contact-actions a {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 8px;
+  padding: 0 10px;
+  color: #ffffff;
+  background: #1d6f3b;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.pickup-note {
+  grid-column: 1 / -1;
+  padding: 12px;
+  border-radius: 8px;
+  color: #315239;
+  background: #eef8e9;
 }
 
 .status-actions {
