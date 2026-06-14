@@ -1,7 +1,7 @@
 import cors from "cors";
 import { config } from "dotenv";
 import exp from "express";
-import { connect, connection } from "mongoose";
+import mongoose from "mongoose";
 import morgan from "morgan";
 import { authRouter } from "./APIs/AuthAPI.js";
 import { materialRouter } from "./APIs/MaterialAPI.js";
@@ -9,6 +9,8 @@ import { pickupRouter } from "./APIs/PickupAPI.js";
 import { userRouter } from "./APIs/UserAPI.js";
 
 config();
+
+const { connect, connection } = mongoose;
 
 //create express application
 const app = exp();
