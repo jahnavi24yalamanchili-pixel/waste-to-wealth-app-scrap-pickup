@@ -47,10 +47,17 @@ function Home() {
         setMaterials(data);
         setSelectedMaterial(data[0]?._id || "");
       })
-      .catch(() => {
-        setMaterials(fallbackMaterials);
-        setSelectedMaterial(fallbackMaterials[0]._id);
-        setMessage("Showing sample prices until backend is connected.");
+      .catch((error) => {
+        if (import.meta.env.DEV) {
+          setMaterials(fallbackMaterials);
+          setSelectedMaterial(fallbackMaterials[0]._id);
+          setMessage(`Showing local sample prices. ${error.message}`);
+          return;
+        }
+
+        setMaterials([]);
+        setSelectedMaterial("");
+        setMessage(`Unable to load live prices. ${error.message}`);
       });
   }, []);
 

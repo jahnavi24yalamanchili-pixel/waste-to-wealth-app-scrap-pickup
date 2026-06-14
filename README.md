@@ -29,7 +29,15 @@ copy .env.example .env
 npm run dev
 ```
 
-Backend runs on `http://localhost:5000`.
+Backend runs locally on `http://localhost:5000`.
+Deployed backend: `https://waste-to-wealth-app-scrap-pickup.onrender.com`.
+Backend health check: `https://waste-to-wealth-app-scrap-pickup.onrender.com/health`.
+
+For backend deployment, set `CLIENT_URL` to your deployed frontend:
+
+```bash
+CLIENT_URL=https://waste-to-wealth-app-scrap-pickup.vercel.app
+```
 
 Main API paths:
 
@@ -56,6 +64,16 @@ npm run dev
 ```
 
 Frontend runs on `http://localhost:5173`.
+
+When the backend is deployed, add the deployed backend URL in Vercel as the
+frontend environment variable:
+
+```bash
+VITE_API_URL=https://waste-to-wealth-app-scrap-pickup.onrender.com
+```
+
+The frontend also defaults to the Render backend in production builds, so it
+will not try to call `localhost:5000` after deployment.
 
 On Windows PowerShell, if `npm` is blocked by script execution policy, use `npm.cmd` instead:
 

@@ -10,15 +10,19 @@ function PriceList({ materials }) {
       </div>
 
       <div className="price-list">
-        {materials.map((material) => (
-          <div className="price-row" key={material._id}>
-            <div>
-              <strong>{material.name}</strong>
-              <span>{material.category}</span>
+        {materials.length === 0 ? (
+          <p className="empty-text">Live prices are not available right now.</p>
+        ) : (
+          materials.map((material) => (
+            <div className="price-row" key={material._id}>
+              <div>
+                <strong>{material.name}</strong>
+                <span>{material.category}</span>
+              </div>
+              <div className="rate">Rs. {material.pricePerKg}/kg</div>
             </div>
-            <div className="rate">₹{material.pricePerKg}/kg</div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </>
   );

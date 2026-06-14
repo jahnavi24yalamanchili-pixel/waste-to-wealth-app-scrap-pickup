@@ -14,6 +14,8 @@ function PickupForm({
   setSelectedMaterial,
   submitPickup,
 }) {
+  const hasMaterials = materials.length > 0;
+
   return (
     <div className="panel">
       <div className="panel-heading">
@@ -60,7 +62,9 @@ function PickupForm({
             <select
               value={selectedMaterial}
               onChange={(event) => setSelectedMaterial(event.target.value)}
+              disabled={!hasMaterials}
             >
+              {!hasMaterials && <option value="">No materials available</option>}
               {materials.map((material) => (
                 <option value={material._id} key={material._id}>
                   {material.name}
@@ -80,14 +84,19 @@ function PickupForm({
             />
           </label>
 
-          <button type="button" className="secondary-btn" onClick={addItem}>
+          <button
+            type="button"
+            className="secondary-btn"
+            onClick={addItem}
+            disabled={!hasMaterials}
+          >
             Add Item
           </button>
         </div>
 
         {message && <p className="message">{message}</p>}
 
-        <button className="primary-btn full-width" disabled={isSubmitting}>
+        <button className="primary-btn full-width" disabled={isSubmitting || !hasMaterials}>
           {isSubmitting ? "Scheduling..." : "Schedule Pickup"}
         </button>
       </form>

@@ -1,7 +1,7 @@
 import cors from "cors";
 import { config } from "dotenv";
 import exp from "express";
-import { connect } from "mongoose";
+import { connect, connection } from "mongoose";
 import morgan from "morgan";
 import { authRouter } from "./APIs/AuthAPI.js";
 import { materialRouter } from "./APIs/MaterialAPI.js";
@@ -13,10 +13,42 @@ config();
 //create express application
 const app = exp();
 
+const defaultClientUrls = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "https://waste-to-wealth-app.vercel.app",
+  "https://waste-to-wealth-app-scrap-pickup.vercel.app",
+];
+
+const configuredClientUrls = [
+  process.env.CLIENT_URL,
+  process.env.CLIENT_URLS,
+]
+  .filter(Boolean)
+  .flatMap((urls) => urls.split(","))
+  .map((url) => url.trim().replace(/\/$/, ""))
+  .filter(Boolean);
+
+const allowedOrigins = [...new Set([...defaultClientUrls, ...configuredClientUrls])];
+const allowedVercelPreviewPattern = /^https:\/\/waste-to-wealth-app.*\.vercel\.app$/;
+
 //use middlewares
 app.use(
   cors({
-    origin:"https://waste-to-wealth-app.vercel.app",
+    origin(origin, callback) {
+      const normalizedOrigin = origin?.replace(/\/$/, "");
+
+      if (
+        !normalizedOrigin ||
+        allowedOrigins.includes(normalizedOrigin) ||
+        allowedVercelPreviewPattern.test(normalizedOrigin)
+      ) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
   })
 );
 app.use(exp.json());
@@ -30,6 +62,16 @@ app.use("/pickup-api", pickupRouter);
 
 app.get("/", (req, res) => {
   res.json({ message: "Waste to Wealth API is running" });
+});
+
+app.get("/health", (req, res) => {
+  const isDbConnected = connection.readyState === 1;
+
+  res.status(isDbConnected ? 200 : 503).json({
+    message: "Waste to Wealth API health",
+    api: "ok",
+    database: isDbConnected ? "connected" : "disconnected",
+  });
 });
 
 //connect to db and start server

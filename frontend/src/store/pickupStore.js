@@ -1,4 +1,8 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const DEFAULT_API_URL = import.meta.env.DEV
+  ? "http://localhost:5000"
+  : "https://waste-to-wealth-app-scrap-pickup.onrender.com";
+
+export const API_URL = (import.meta.env.VITE_API_URL || DEFAULT_API_URL).replace(/\/$/, "");
 
 const friendlyFallbacks = {
   400: "Please check the details and try again.",
@@ -26,7 +30,7 @@ const request = async (url, options = {}, fallbackMessage = "Something went wron
     return data;
   } catch (error) {
     if (error.name === "TypeError") {
-      throw new Error("Cannot connect to server. Please start the backend and try again.");
+      throw new Error(`Cannot connect to backend at ${API_URL}.`);
     }
 
     throw new Error(error.message || fallbackMessage);
